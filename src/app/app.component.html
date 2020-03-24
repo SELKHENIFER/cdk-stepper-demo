@@ -1,0 +1,20 @@
+<div style="text-align:center">
+  <h1>POC Stepper With Form Validation !</h1>
+</div>
+<div id="registration" class="conatiner col-md-12">
+  <form id="regForm" [formGroup]="registrationForm">
+    <app-my-stepper #stepper linear>
+      <cdk-step formGroupName="personalDetails" 
+        [stepControl]="registrationForm.get('personalDetails')">
+        <app-registration-step1 [regForm]="registrationForm"></app-registration-step1>
+      </cdk-step>
+      <cdk-step formGroupName="contactDetails"
+      [stepControl]="registrationForm.get('contactDetails')">
+        <app-registration-step2 [regForm]="registrationForm"></app-registration-step2>
+      </cdk-step>
+      <cdk-step>
+        <app-registration-step3 [regForm]="registrationForm"></app-registration-step3>
+      </cdk-step>
+    </app-my-stepper>
+  </form>
+</div>

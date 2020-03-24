@@ -1,0 +1,19 @@
+<section class="container">
+    <header>
+      <h2>Step {{selectedIndex + 1}}/{{steps.length}}</h2>
+      <div>
+        <button
+            class="pure-button"
+            *ngFor="let step of steps; let i = index;"
+            [ngClass]="{'pure-button-primary': selectedIndex === i}"
+        >
+          <span *ngIf="i == 0">Informations Personnelles</span>
+          <span *ngIf="i == 1">Information de contact</span>
+          <span *ngIf="i == 2">Confirmation</span>
+        </button>
+      </div>
+    </header>
+  
+    <div [ngTemplateOutlet]="selected.content"></div>
+  
+  </section>
